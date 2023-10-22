@@ -2,6 +2,12 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type Dog {
+  id: String!
+  name: String!
+  breed: String!
+}
+
 type Employee {
   id: String!
   firstName: String!
@@ -26,6 +32,8 @@ type Query {
   getAllPosts: [Post!]!
   getAllprojects: [Project!]!
   project(id: String!): Project!
+  getAllDogs: [Dog!]!
+  dog(name: String): Dog!
 }
 
 type Mutation {
@@ -33,6 +41,7 @@ type Mutation {
   createProject(createProjectInput: CreateProjectInput!): Project!
   updateProject(updateProjectInput: UpdateProjectInput!): Project!
   removeProject(id: String!): Project!
+  createDog(createDogInput: CreateDogInput!): Dog!
 }
 
 input CreateEmployeeInput {
@@ -50,4 +59,9 @@ input UpdateProjectInput {
   name: String!
   code: Int!
   id: String!
+}
+
+input CreateDogInput {
+  name: String!
+  breed: String!
 }

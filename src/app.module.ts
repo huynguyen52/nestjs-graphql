@@ -3,6 +3,7 @@ import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { join } from 'path';
+import { DogModule } from './dog/dog.module';
 import { EmployeeModule } from './employee/employee.module';
 import { PostModule } from './post/post.module';
 import { ProjectModule } from './project/project.module';
@@ -26,6 +27,7 @@ import { ProjectModule } from './project/project.module';
     EmployeeModule,
     PostModule,
     ProjectModule,
+    DogModule,
   ],
   controllers: [],
 })
