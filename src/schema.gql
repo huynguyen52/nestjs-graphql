@@ -27,6 +27,16 @@ type Post {
   title: String!
 }
 
+type DashboardConfig {
+  name: String!
+  age: Float!
+}
+
+type Dashboard {
+  id: String!
+  config: DashboardConfig!
+}
+
 type Query {
   getAllEmployees: [Employee!]!
   getAllPosts: [Post!]!
@@ -34,6 +44,7 @@ type Query {
   project(id: String!): Project!
   getAllDogs: [Dog!]!
   dog(name: String): Dog!
+  dashboard(id: Int!): Dashboard!
 }
 
 type Mutation {
@@ -42,6 +53,9 @@ type Mutation {
   updateProject(updateProjectInput: UpdateProjectInput!): Project!
   removeProject(id: String!): Project!
   createDog(createDogInput: CreateDogInput!): Dog!
+  createDashboard(createDashboardInput: CreateDashboardInput!): Dashboard!
+  updateDashboard(updateDashboardInput: UpdateDashboardInput!): Dashboard!
+  removeDashboard(id: Int!): Dashboard!
 }
 
 input CreateEmployeeInput {
@@ -64,4 +78,18 @@ input UpdateProjectInput {
 input CreateDogInput {
   name: String!
   breed: String!
+}
+
+input CreateDashboardInput {
+  config: JSONObject!
+}
+
+"""
+The `JSONObject` scalar type represents JSON objects as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+"""
+scalar JSONObject
+
+input UpdateDashboardInput {
+  config: JSONObject
+  id: Int!
 }
